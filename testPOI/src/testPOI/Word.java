@@ -4,7 +4,7 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.apache.poi.xwpf.usermodel.ParagraphAlignment;
-import org.apache.poi.xwpf.usermodel.Borders;
+import org.apache.poi.xwpf.usermodel.UnderlinePatterns;
 
 import java.io.FileOutputStream;
 
@@ -16,23 +16,20 @@ public class Word {
 		XWPFParagraph paragraph = document.createParagraph();
 		XWPFRun run = paragraph.createRun();
 		paragraph.setAlignment(ParagraphAlignment.CENTER);
-		paragraph.setIndentationHanging(1000);
-		paragraph.setBorderTop(Borders.BASIC_BLACK_DASHES);
-		paragraph.setBorderBottom(Borders.BASIC_BLACK_DASHES);
-		paragraph.setSpacingAfter(1000);							// 20 = 1pt of font?
-		
-		run.setText("Pancakes"); 
-		run.setText(" and Peanut Butter! ");
-		run.addBreak();
-		run.setText("I'm hungry dude. I'm hungry dude. I'm hungry dude. I'm hungry dude. I'm hungry dude."
-				+ "I'm hungry dude. I'm hungry dude. I'm hungry dude. I'm hungry dude. I'm hungry dude.");	
-		
-		XWPFParagraph paragraph2 = document.createParagraph();
-		XWPFRun run2 = paragraph2.createRun();
-		// paragraph2.setPageBreak(true); couldn't get this to work
-		
-		run2.setText("Notice the line break for a new paragraph.");
 
+		run.setText("Ag");	
+		run.setFontSize(84);
+		run.setFontFamily("Baskerville");					// don't add .ttc
+			// Fonts that Worked: Futura, Kefa, Telugu MN, Verdana, Papyrus, Noteworthy, Baskerville
+			// Fonts that didn't: PTSans, Sana, Corsiva, Ariel, Baoli
+		// run.setUnderline(UnderlinePatterns.DOUBLE);			works 
+		// run.setBold(true);									works
+		// run.setItalic(true);									works
+		// run.setStrike(true);									works
+
+
+		run.setColor("0099FF");
+		
 		
 		try {
 			FileOutputStream output = new FileOutputStream("Awesome.docx");
