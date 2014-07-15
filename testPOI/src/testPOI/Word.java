@@ -2,9 +2,7 @@ package testPOI;
 
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
-	// https://poi.apache.org/apidocs/org/apache/poi/xwpf/usermodel/XWPFParagraph.html
 import org.apache.poi.xwpf.usermodel.XWPFRun;
-import org.apache.poi.xwpf.usermodel.ParagraphAlignment;
 
 import java.io.FileOutputStream;
 import java.util.ArrayList;
@@ -50,7 +48,7 @@ public class Word {
 		}
 		
 		try {
-			FileOutputStream output = new FileOutputStream("./Awesome.docx");
+			FileOutputStream output = new FileOutputStream("TotallyAwesome.docx");
 			document.write(output);
 			output.close();
 			
